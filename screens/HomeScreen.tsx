@@ -3,6 +3,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import tw from "twrnc";
 import NavOptions from "../components/NavOptions";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import { GOOGLE_MAPS_API_KEY } from "@env";
 
 const HomeScreen = () => {
   return (

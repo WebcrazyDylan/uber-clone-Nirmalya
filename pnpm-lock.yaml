@@ -40,6 +40,9 @@ dependencies:
   react-native-maps:
     specifier: ^1.5.0
     version: 1.5.0(react-native@0.71.6)(react@18.2.0)
+  react-native-maps-directions:
+    specifier: ^1.9.0
+    version: 1.9.0(react-native-maps@1.5.0)(react-native@0.71.6)(react@18.2.0)
   react-native-reanimated:
     specifier: ^2.14.4
     version: 2.14.4(@babel/core@7.20.2)(react-native@0.71.6)(react@18.2.0)
@@ -6203,6 +6206,20 @@ packages:
 
   /react-native-gradle-plugin@0.71.17:
     resolution: {integrity: sha512-OXXYgpISEqERwjSlaCiaQY6cTY5CH6j73gdkWpK0hedxtiWMWgH+i5TOi4hIGYitm9kQBeyDu+wim9fA8ROFJA==}
+    dev: false
+
+  /react-native-maps-directions@1.9.0(react-native-maps@1.5.0)(react-native@0.71.6)(react@18.2.0):
+    resolution: {integrity: sha512-68SrMOUg4WQ5PmpS9sNOTZaYtdyVYJnnjQOOhABrgiKnb5BXCZRU2gDoS11gYf23hjUBjq8JXzgfn37WcINLwA==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
+      react-native-maps: '>=1.0.0'
+    dependencies:
+      lodash.isequal: 4.5.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-native: 0.71.6(@babel/core@7.20.2)(@babel/preset-env@7.21.4)(react@18.2.0)
+      react-native-maps: 1.5.0(react-native@0.71.6)(react@18.2.0)
     dev: false
 
   /react-native-maps@1.5.0(react-native@0.71.6)(react@18.2.0):

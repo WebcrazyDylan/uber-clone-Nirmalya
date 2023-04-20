@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../store";
 
 export interface NavState {
   origin: number;
@@ -31,5 +32,10 @@ export const navSlice = createSlice({
 
 export const { setOrigin, setDestination, setTravelTimeInformation } =
   navSlice.actions;
+
+export const selectOrigin = (state: RootState) => state.nav.origin;
+export const selectDestination = (state: RootState) => state.nav.destination;
+export const selectTravelTimeInformation = (state: RootState) =>
+  state.nav.travelTimeInformation;
 
 export default navSlice.reducer;

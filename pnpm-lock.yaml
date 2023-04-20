@@ -37,6 +37,9 @@ dependencies:
   react-native-google-places-autocomplete:
     specifier: ^2.5.1
     version: 2.5.1(react-native@0.71.6)
+  react-native-maps:
+    specifier: ^1.5.0
+    version: 1.5.0(react-native@0.71.6)(react@18.2.0)
   react-native-reanimated:
     specifier: ^2.14.4
     version: 2.14.4(@babel/core@7.20.2)(react-native@0.71.6)(react@18.2.0)
@@ -2293,6 +2296,10 @@ packages:
 
   /@tsconfig/node16@1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
+
+  /@types/geojson@7946.0.10:
+    resolution: {integrity: sha512-Nmh0K3iWQJzniTuPRcJn5hxXkfB1T1pgB89SBig5PlJQU5yocazeu4jATJlaA0GYFKWMqDdvYemoSnF2pXgLVA==}
+    dev: false
 
   /@types/hammerjs@2.0.41:
     resolution: {integrity: sha512-ewXv/ceBaJprikMcxCmWU1FKyMAQ2X7a9Gtmzw8fcg2kIePI1crERDM818W+XYrxqdBBOdlf2rm137bU+BltCA==}
@@ -6196,6 +6203,21 @@ packages:
 
   /react-native-gradle-plugin@0.71.17:
     resolution: {integrity: sha512-OXXYgpISEqERwjSlaCiaQY6cTY5CH6j73gdkWpK0hedxtiWMWgH+i5TOi4hIGYitm9kQBeyDu+wim9fA8ROFJA==}
+    dev: false
+
+  /react-native-maps@1.5.0(react-native@0.71.6)(react@18.2.0):
+    resolution: {integrity: sha512-tfU1AnyJk1Tj1pZKcplpARFc8zxaUkAMiPO8ThwiuVeXpNuRY3FZ3AHlZaKOOmqJ5Lyi3VXrBre2kRJY/jvQWw==}
+    peerDependencies:
+      react: '>= 17.0.1'
+      react-native: '>= 0.64.3'
+      react-native-web: '>= 0.11'
+    peerDependenciesMeta:
+      react-native-web:
+        optional: true
+    dependencies:
+      '@types/geojson': 7946.0.10
+      react: 18.2.0
+      react-native: 0.71.6(@babel/core@7.20.2)(@babel/preset-env@7.21.4)(react@18.2.0)
     dev: false
 
   /react-native-ratings@8.1.0(react-native@0.71.6)(react@18.2.0):

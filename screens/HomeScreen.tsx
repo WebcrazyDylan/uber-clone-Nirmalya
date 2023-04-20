@@ -2,6 +2,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import tw from "twrnc";
+import NavOptions from "../components/NavOptions";
 
 const HomeScreen = () => {
   return (
@@ -13,6 +14,8 @@ const HomeScreen = () => {
           }}
           style={styles.image}
         />
+
+        <NavOptions />
       </View>
     </SafeAreaView>
   );

@@ -20,6 +20,24 @@ const Map: React.FC = () => {
     });
   }, [origin, destination]);
 
+  useEffect(() => {
+    if (!origin || !destination) return;
+
+    const getTravelTime = async () => {
+      // const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=imperial&key=${GOOGLE_MAPS_API_KEY}`;
+      const URL =
+        "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Washington%2C%20DC&destinations=New%20York%20City%2C%20NY&units=imperial&key=AIzaSyCBUajeUVrb87ssMDczmTgpUDR-c71lCi4";
+
+      fetch(URL)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+    };
+
+    getTravelTime();
+  }, [origin, destination, GOOGLE_MAPS_API_KEY]);
+
   return (
     <MapView
       ref={mapRef}

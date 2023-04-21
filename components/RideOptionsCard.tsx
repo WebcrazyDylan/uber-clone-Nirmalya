@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import tw from "twrnc";
 import {
   FlatList,
@@ -12,7 +12,14 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Icon } from "@rneui/base";
 import { useNavigation } from "@react-navigation/native";
 
-const data = [
+interface Data {
+  id: string;
+  title: string;
+  multiple: number;
+  image: string;
+}
+
+const data: Data[] = [
   {
     id: "Uber-X",
     title: "Uber X",
@@ -35,6 +42,7 @@ const data = [
 
 const RideOptionsCard = () => {
   const navigation = useNavigation();
+  const [selected, setSelected] = useState<Data | null>(null);
 
   return (
     <SafeAreaView style={tw`-pt-8 bg-white flex-grow`}>
@@ -54,7 +62,10 @@ const RideOptionsCard = () => {
         keyExtractor={(item) => item.id}
         renderItem={({ item: { id, title, multiple, image }, item }) => (
           <TouchableOpacity
-            style={tw`flex-row items-center justify-between px-10`}
+            onPress={() => setSelected(item)}
+            style={tw`flex-row items-center justify-between px-10 ${
+              id === selected?.id ? "bg-gray-200" : ""
+            }`}
           >
             <Image
               source={{

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { selectDestination, selectOrigin } from "../slices/navSlice";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_MAPS_API_KEY } from "@env";
+import axios from "axios";
 
 const Map: React.FC = () => {
   const origin = useSelector(selectOrigin);
@@ -24,14 +25,20 @@ const Map: React.FC = () => {
     if (!origin || !destination) return;
 
     const getTravelTime = async () => {
-      // const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=imperial&key=${GOOGLE_MAPS_API_KEY}`;
-      const URL =
-        "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Washington%2C%20DC&destinations=New%20York%20City%2C%20NY&units=imperial&key=AIzaSyCBUajeUVrb87ssMDczmTgpUDR-c71lCi4";
+      const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=imperial&key=${GOOGLE_MAPS_API_KEY}`;
 
-      fetch(URL)
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
+      const config = {
+        method: "get",
+        url: URL,
+        headers: {}
+      };
+
+      axios(config)
+        .then((response) => {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
         });
     };
 

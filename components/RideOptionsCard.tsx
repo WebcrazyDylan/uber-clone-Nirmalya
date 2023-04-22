@@ -85,7 +85,9 @@ const RideOptionsCard = () => {
 
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text style={tw``}>Travel Time...</Text>
+              <Text style={tw``}>
+                {travelTimeInfo?.duration.text} Travel Time
+              </Text>
             </View>
             <Text style={tw`text-xl`}>Money</Text>
           </TouchableOpacity>

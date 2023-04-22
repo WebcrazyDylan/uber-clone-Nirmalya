@@ -2,23 +2,36 @@ import { StyleSheet, Text, View } from "react-native";
 import React, { useEffect, useRef } from "react";
 import tw from "twrnc";
 import MapView, { Marker } from "react-native-maps";
-import { useSelector } from "react-redux";
-import { selectDestination, selectOrigin } from "../slices/navSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectDestination,
+  selectOrigin,
+  setTravelTimeInformation
+} from "../slices/navSlice";
 import MapViewDirections from "react-native-maps-directions";
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import axios from "axios";
 
 const Map: React.FC = () => {
+  const dispatch = useDispatch();
+  const mapRef = useRef<MapView>(null);
   const origin = useSelector(selectOrigin);
   const destination = useSelector(selectDestination);
-  const mapRef = useRef<MapView | null>(null);
 
   useEffect(() => {
     if (!origin || !destination) return;
 
-    mapRef?.current?.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: { top: 50, right: 50, bottom: 50, left: 50 }
-    });
+    // mapRef?.current?.fitToSuppliedMarkers(["origin", "destination"], {
+    //   edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+    //   animated: true
+    // });
+
+    setTimeout(() => {
+      mapRef?.current?.fitToSuppliedMarkers(["origin", "destination"], {
+        edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
+        animated: true
+      });
+    }, 2000);
   }, [origin, destination]);
 
   useEffect(() => {
@@ -35,7 +48,7 @@ const Map: React.FC = () => {
 
       axios(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data));
+          dispatch(setTravelTimeInformation(response.data.rows[0].elements[0]));
         })
         .catch(function (error) {
           console.log(error);

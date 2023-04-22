@@ -11,13 +11,23 @@ export interface NavState {
     location: { lat: number; lng: number };
     description: string;
   } | null;
-  travelTimeInformation: number;
+  travelTimeInformation: {
+    distance: {
+      text: string;
+      value: number;
+    };
+    duration: {
+      text: string;
+      value: number;
+    };
+    status: string;
+  } | null;
 }
 
 const initialState: NavState = {
   origin: null,
   destination: null,
-  travelTimeInformation: 0
+  travelTimeInformation: null
 };
 
 export const navSlice = createSlice({
@@ -30,7 +40,7 @@ export const navSlice = createSlice({
     setDestination: (state, action) => {
       state.destination = action.payload;
     },
-    setTravelTimeInformation: (state, action: PayloadAction<number>) => {
+    setTravelTimeInformation: (state, action) => {
       state.travelTimeInformation = action.payload;
     }
   }

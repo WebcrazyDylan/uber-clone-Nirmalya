@@ -11,6 +11,8 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Icon } from "@rneui/base";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch, useSelector } from "react-redux";
+import { selectTravelTimeInformation } from "../slices/navSlice";
 
 interface Data {
   id: string;
@@ -43,6 +45,7 @@ const data: Data[] = [
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState<Data | null>(null);
+  const travelTimeInfo = useSelector(selectTravelTimeInformation);
 
   return (
     <SafeAreaView style={tw`-pt-8 bg-white flex-grow`}>
@@ -54,7 +57,9 @@ const RideOptionsCard = () => {
         >
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
-        <Text style={tw`text-center py-5 text-xl`}>Select a Ride</Text>
+        <Text style={tw`text-center py-5 text-xl`}>
+          Select a Ride - {travelTimeInfo?.distance.text}
+        </Text>
       </View>
 
       <FlatList

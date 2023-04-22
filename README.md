@@ -35,6 +35,7 @@ cd deliveroo-clone
 pnpm run android
 pnpm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
 pnpm expo start
+expo start -c
 ```
 
 For Back-End CSM:

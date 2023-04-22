@@ -42,6 +42,9 @@ const data: Data[] = [
   }
 ];
 
+const SURGE_CHARGE_RATE = 1.5;
+const GBP_INR = 45;
+
 const RideOptionsCard = () => {
   const navigation = useNavigation();
   const [selected, setSelected] = useState<Data | null>(null);
@@ -89,12 +92,24 @@ const RideOptionsCard = () => {
                 {travelTimeInfo?.duration.text} Travel Time
               </Text>
             </View>
-            <Text style={tw`text-xl`}>Money</Text>
+            <Text style={tw`text-xl`}>
+              {travelTimeInfo &&
+                new Intl.NumberFormat("en-in", {
+                  style: "currency",
+                  currency: "INR"
+                }).format(
+                  (travelTimeInfo?.duration.value *
+                    GBP_INR *
+                    SURGE_CHARGE_RATE *
+                    multiple) /
+                    100
+                )}
+            </Text>
           </TouchableOpacity>
         )}
       />
 
-      <View>
+      <View style={tw`mt-auto border-t border-gray-200`}>
         <TouchableOpacity
           disabled={!selected}
           style={tw`bg-black py-3 m-3 rounded-lg ${

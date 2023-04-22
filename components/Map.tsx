@@ -38,7 +38,7 @@ const Map: React.FC = () => {
     if (!origin || !destination) return;
 
     const getTravelTime = async () => {
-      const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=imperial&key=${GOOGLE_MAPS_API_KEY}`;
+      const URL = `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${destination.description}&origins=${origin.description}&units=metric&key=${GOOGLE_MAPS_API_KEY}`;
 
       const config = {
         method: "get",

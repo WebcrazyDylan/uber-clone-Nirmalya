@@ -1,13 +1,12 @@
-# Deliveroo Clone (Expo)
+# Uber Clone (Expo)
 
-This is a repository for Deliveroo Clone with React Native, Expo, JavaScript, TailWindCSS, Sanity, Redux, React Navigation & GROQ.
+This is a repository for Uber Clone with React Native, Expo, TypeScript, TailWindCSS, Redux, React Navigation, Google Places API & Distance Matrix API.
 
 Funcionalities:
 
-- CMS with Sanity Back-End.
-- In-App Navigation.
+- Distance & Price Calculation with Google Maps API.
+- In-App Screen Navigation with Gesture.
 - Global Store with Redux.
-- Image Upload with Sanity.
 - Modern / Responsive Layout
 
 ### Prerequisites
@@ -23,7 +22,7 @@ Funcionalities:
 ### Cloning the repository
 
 ```shell
-git clone https://github.com/nayak-nirmalya/deliveroo-clone.git
+git clone https://github.com/nayak-nirmalya/uber-clone.git
 ```
 
 ## Running Project
@@ -31,48 +30,38 @@ git clone https://github.com/nayak-nirmalya/deliveroo-clone.git
 To run your project, navigate to the directory and run one of the following pnpm commands:
 
 ```shell
-cd deliveroo-clone
+cd uber-clone
 pnpm run android
 pnpm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
 pnpm expo start
+```
+
+If You Face Any Issue Run:
+
+```shell
 expo start -c
 ```
 
-For Back-End CSM:
-
-```shell
-cd sanity
-pnpm dev # to run Sanity Studio
-```
-
-Success! Studio deployed to https://deliveroonirmalya.sanity.studio/
+to Clear Expo Build Cache.
 
 ## Screenshots
 
 <div align='center'>
 
-### Home Page
+### Home Screen
 
-<img src="readme_imgs/homepage.jpg" width="360">
+<img src="readme_imgs/home_screen.jpg" width="360">
 
-### Resturant Page
+### Origin Google Autocomplete
 
-<img src="readme_imgs/resturantpage.jpg" width="360">
+<img src="readme_imgs/origin_autocomplete.jpg" width="360">
 
-### Resturant Page With Items in Basket
+### Chose Destination Screen
 
-<img src="readme_imgs/resturantpagewithbasket.jpg" width="360">
+<img src="readme_imgs/dest_autocomplete.jpg" width="360">
 
-### Basket Modal
+### Choose Ride Screen
 
-<img src="readme_imgs/basketpage.jpg" width="360">
-
-### Preparing Order Page
-
-<img src="readme_imgs/preparingorder.jpg" width="360">
-
-### Delivery Page
-
-<img src="readme_imgs/deliverypage.jpg" width="360">
+<img src="readme_imgs/chose_ride.jpg" width="360">
 
 </div>

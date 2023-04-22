@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import tw from "twrnc";
-import {
-  FlatList,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Image
-} from "react-native";
+import { FlatList, Text, TouchableOpacity, View, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Icon } from "@rneui/base";
 import { useNavigation } from "@react-navigation/native";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectTravelTimeInformation } from "../slices/navSlice";
+import tw from "twrnc";
 
 interface Data {
   id: string;
@@ -61,7 +54,7 @@ const RideOptionsCard = () => {
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
         <Text style={tw`text-center py-5 text-xl`}>
-          Select a Ride - {travelTimeInfo?.distance.text}
+          Select a Ride - {travelTimeInfo?.distance?.text}
         </Text>
       </View>
 
@@ -89,7 +82,7 @@ const RideOptionsCard = () => {
             <View style={tw`-ml-6`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
               <Text style={tw``}>
-                {travelTimeInfo?.duration.text} Travel Time
+                {travelTimeInfo?.duration?.text} Travel Time
               </Text>
             </View>
             <Text style={tw`text-xl`}>
@@ -98,7 +91,7 @@ const RideOptionsCard = () => {
                   style: "currency",
                   currency: "INR"
                 }).format(
-                  (travelTimeInfo?.duration.value *
+                  (travelTimeInfo?.duration?.value *
                     GBP_INR *
                     SURGE_CHARGE_RATE *
                     multiple) /
@@ -126,5 +119,3 @@ const RideOptionsCard = () => {
 };
 
 export default RideOptionsCard;
-
-const styles = StyleSheet.create({});
